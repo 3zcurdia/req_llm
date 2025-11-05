@@ -11,8 +11,10 @@ defmodule ReqLLM.Providers.AmazonBedrockPromptCacheTest do
 
   import ExUnit.CaptureLog
 
+  alias ReqLLM.Context
+  alias ReqLLM.Model
   alias ReqLLM.Providers.AmazonBedrock
-  alias ReqLLM.{Context, Model, Tool}
+  alias ReqLLM.Tool
 
   setup do
     # Mock AWS credentials for testing

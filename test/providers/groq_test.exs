@@ -362,7 +362,7 @@ defmodule ReqLLM.Providers.GroqTest do
         private: %{real_time_stream: mock_stream}
       }
 
-      # Test decode_response directly  
+      # Test decode_response directly
       {req, resp} = Groq.decode_response({mock_req, mock_resp})
 
       assert req == mock_req
@@ -524,7 +524,7 @@ defmodule ReqLLM.Providers.GroqTest do
       assert %ReqLLM.Error.Invalid.Parameter{} = error
       assert error.parameter =~ "operation: :unsupported not supported"
 
-      # Test unsupported operation for object with schema  
+      # Test unsupported operation for object with schema
       {:ok, schema} = ReqLLM.Schema.compile([])
 
       {:error, error} =

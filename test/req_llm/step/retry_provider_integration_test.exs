@@ -2,7 +2,9 @@ defmodule ReqLLM.Step.RetryProviderIntegrationTest do
   use ExUnit.Case, async: true
 
   alias ReqLLM.Model
-  alias ReqLLM.Providers.{Anthropic, Google, AmazonBedrock}
+  alias ReqLLM.Providers.AmazonBedrock
+  alias ReqLLM.Providers.Anthropic
+  alias ReqLLM.Providers.Google
 
   setup do
     System.put_env("ANTHROPIC_API_KEY", "test-anthropic-key")

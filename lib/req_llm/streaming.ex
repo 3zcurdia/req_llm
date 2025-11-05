@@ -11,7 +11,7 @@ defmodule ReqLLM.Streaming do
   The streaming system consists of three main components:
 
   - `StreamServer` - GenServer managing stream state and event processing
-  - `FinchClient` - HTTP transport layer using Finch for streaming requests  
+  - `FinchClient` - HTTP transport layer using Finch for streaming requests
   - `StreamResponse` - User-facing API providing streams and metadata tasks
 
   ## Flow
@@ -27,7 +27,7 @@ defmodule ReqLLM.Streaming do
 
       {:ok, stream_response} = ReqLLM.Streaming.start_stream(
         ReqLLM.Providers.Anthropic,
-        %ReqLLM.Model{provider: :anthropic, name: "claude-3-sonnet"}, 
+        %ReqLLM.Model{provider: :anthropic, name: "claude-3-sonnet"},
         ReqLLM.Context.new("Hello!"),
         []
       )
@@ -43,8 +43,7 @@ defmodule ReqLLM.Streaming do
 
   """
 
-  alias ReqLLM.StreamServer
-  alias ReqLLM.{Context, Model, StreamResponse}
+  alias ReqLLM.{Context, Model, StreamResponse, StreamServer}
 
   require Logger
 
@@ -86,7 +85,7 @@ defmodule ReqLLM.Streaming do
       # With options
       {:ok, stream_response} = ReqLLM.Streaming.start_stream(
         provider_mod,
-        model, 
+        model,
         context,
         timeout: 60_000,
         fixture_path: "/tmp/test_fixture.json"
@@ -97,7 +96,7 @@ defmodule ReqLLM.Streaming do
   The function can fail at several points:
 
   - StreamServer fails to start
-  - Provider's build_stream_request/4 fails  
+  - Provider's build_stream_request/4 fails
   - HTTP streaming task fails to start
   - Task attachment fails
 
@@ -219,7 +218,7 @@ defmodule ReqLLM.Streaming do
 
   defp maybe_capture_fixture(model, opts) do
     case Code.ensure_loaded(ReqLLM.Test.Fixtures) do
-      {:module, mod} -> apply(mod, :capture_path, [model, opts])
+      {:module, mod} -> mod.capture_path(model, opts)
       {:error, _} -> nil
     end
   end

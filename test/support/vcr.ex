@@ -28,7 +28,7 @@ defmodule ReqLLM.Test.VCR do
       stream = VCR.replay_stream(transcript)
   """
 
-  alias ReqLLM.Test.{Transcript, ChunkCollector}
+  alias ReqLLM.Test.{ChunkCollector, Transcript}
 
   @type provider :: atom()
   @type model_spec :: binary()

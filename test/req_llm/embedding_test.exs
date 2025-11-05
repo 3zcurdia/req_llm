@@ -4,7 +4,7 @@ defmodule ReqLLM.EmbeddingTest do
 
   This test suite covers:
   - Single text embedding generation
-  - Batch text embedding generation  
+  - Batch text embedding generation
   - Model validation for embedding support
   - Provider-specific functionality
   - Error handling
@@ -169,7 +169,7 @@ defmodule ReqLLM.EmbeddingTest do
     end
 
     test "validates options correctly" do
-      # Invalid dimensions should fail at validation stage  
+      # Invalid dimensions should fail at validation stage
       assert {:error, error} =
                Embedding.embed("openai:text-embedding-3-small", "Hello", dimensions: -1)
 

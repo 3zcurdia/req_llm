@@ -3,7 +3,7 @@ defmodule ReqLLM.Streaming.HTTP2ErrorMessageTest do
 
   import ExUnit.CaptureLog
 
-  alias ReqLLM.{Model, Context}
+  alias ReqLLM.{Context, Model}
 
   describe "HTTP/2 error message formatting" do
     test "logs helpful error message when large body sent to HTTP/2 pool" do

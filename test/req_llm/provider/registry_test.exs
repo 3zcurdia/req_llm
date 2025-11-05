@@ -525,7 +525,7 @@ defmodule ReqLLM.Provider.RegistryTest do
     end
 
     test "initialize/0 and reload/0 work" do
-      # These functions primarily work with application modules, 
+      # These functions primarily work with application modules,
       # so we just ensure they don't crash
       assert Registry.initialize() == :ok
       assert Registry.reload() == :ok

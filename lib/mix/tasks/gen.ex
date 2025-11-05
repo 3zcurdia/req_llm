@@ -696,7 +696,7 @@ defmodule Mix.Tasks.ReqLlm.Gen do
       {:ok, provider_id} ->
         case ReqLLM.Provider.Registry.get_provider(provider_id) do
           {:ok, provider_module} ->
-            env_var = apply(provider_module, :default_env_key, [])
+            env_var = provider_module.default_env_key([])
             log_puts("Error: API key not found for #{provider_id}", :warning, log_level)
             log_puts("\nPlease set your API key using one of these methods:", :warning, log_level)
 

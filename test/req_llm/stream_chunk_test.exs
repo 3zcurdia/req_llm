@@ -190,7 +190,7 @@ defmodule ReqLLM.StreamChunkTest do
       assert_raise FunctionClauseError, fn -> StreamChunk.text(123) end
       assert_raise FunctionClauseError, fn -> StreamChunk.text("hello", "not a map") end
 
-      # thinking/2 guards  
+      # thinking/2 guards
       assert_raise FunctionClauseError, fn -> StreamChunk.thinking(:not_binary) end
       assert_raise FunctionClauseError, fn -> StreamChunk.thinking("thinking", :not_map) end
 

@@ -435,7 +435,7 @@ defmodule ReqLLM.Step.UsageTest do
 
       # Cost calculation: uncached=200, cached=800
       # Input: (200*0.01 + 800*0.005)/1000000 = 0.000006
-      # Output: 200*0.03/1000000 = 0.000006  
+      # Output: 200*0.03/1000000 = 0.000006
       # Total: 0.000012
       expected_input_cost = Float.round((200 * 0.01 + 800 * 0.005) / 1_000_000, 6)
       expected_output_cost = Float.round(200 * 0.03 / 1_000_000, 6)
@@ -467,7 +467,7 @@ defmodule ReqLLM.Step.UsageTest do
 
       # Cost calculation with cache_read fallback:
       # Uncached: 400 tokens * 0.01 / 1000000 = 0.000004
-      # Cached: 600 tokens * 0.005 / 1000000 = 0.000003  
+      # Cached: 600 tokens * 0.005 / 1000000 = 0.000003
       # Input cost: 0.000004 + 0.000003 = 0.000007
       # Output cost: 100 * 0.03 / 1000000 = 0.000003
       # Total: 0.00001
@@ -493,7 +493,7 @@ defmodule ReqLLM.Step.UsageTest do
             "prompt_tokens_details" => %{"cached_tokens" => 150}
           }
         },
-        # Cached tokens = 0 
+        # Cached tokens = 0
         %{
           "usage" => %{
             "prompt_tokens" => 100,
@@ -693,7 +693,7 @@ defmodule ReqLLM.Step.UsageTest do
       # Cost calculation: 400 uncached at 0.01, 400 cached at 0.005
       # 0.000004
       uncached_cost = 400 * 0.01 / 1_000_000
-      # 0.000002  
+      # 0.000002
       cached_cost = 400 * 0.005 / 1_000_000
       expected_input_cost = Float.round(uncached_cost + cached_cost, 6)
       expected_output_cost = Float.round(300 * 0.03 / 1_000_000, 6)

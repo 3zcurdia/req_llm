@@ -225,14 +225,14 @@ defmodule ReqLLM.Streaming.FinchClient do
 
   defp maybe_replay_fixture(model, opts) do
     case Code.ensure_loaded(ReqLLM.Test.Fixtures) do
-      {:module, mod} -> apply(mod, :replay_path, [model, opts])
+      {:module, mod} -> mod.replay_path(model, opts)
       {:error, _} -> :no_fixture
     end
   end
 
   defp maybe_capture_fixture(model, opts) do
     case Code.ensure_loaded(ReqLLM.Test.Fixtures) do
-      {:module, mod} -> apply(mod, :capture_path, [model, opts])
+      {:module, mod} -> mod.capture_path(model, opts)
       {:error, _} -> nil
     end
   end

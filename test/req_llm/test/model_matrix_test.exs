@@ -1,7 +1,7 @@
 defmodule ReqLLM.Test.ModelMatrixTest do
   use ExUnit.Case, async: true
 
-  alias ReqLLM.Test.{ModelMatrix, FakeRegistry}
+  alias ReqLLM.Test.{FakeRegistry, ModelMatrix}
 
   @opts [registry: FakeRegistry]
 

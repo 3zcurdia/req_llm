@@ -64,7 +64,7 @@ defmodule ReqLLM.ModelCoverageTest do
       {:error, error2} = Model.from({"string_provider", "model", []})
       assert error2.class == :validation and error2.tag == :invalid_model_spec
 
-      # Test invalid opts in 3-tuple  
+      # Test invalid opts in 3-tuple
       {:error, error3} = Model.from({:anthropic, "model", "invalid_opts"})
       assert error3.class == :validation and error3.tag == :invalid_model_spec
     end

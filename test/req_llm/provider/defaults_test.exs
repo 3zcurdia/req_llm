@@ -1,8 +1,12 @@
 defmodule ReqLLM.Provider.DefaultsTest do
   use ExUnit.Case, async: true
 
+  alias ReqLLM.Context
+  alias ReqLLM.Message
+  alias ReqLLM.Message.ContentPart
+  alias ReqLLM.Model
   alias ReqLLM.Provider.Defaults
-  alias ReqLLM.{Context, Message, Message.ContentPart, Model, StreamChunk}
+  alias ReqLLM.StreamChunk
 
   describe "encode_context_to_openai_format/2" do
     test "encodes text content correctly" do

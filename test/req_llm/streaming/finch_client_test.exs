@@ -1,9 +1,10 @@
 defmodule ReqLLM.Streaming.FinchClientTest do
   use ExUnit.Case, async: true
 
+  alias ReqLLM.Context
+  alias ReqLLM.Model
   alias ReqLLM.Streaming.FinchClient
   alias ReqLLM.Streaming.Fixtures.HTTPContext
-  alias ReqLLM.{Model, Context}
 
   describe "HTTPContext" do
     test "creates new context with basic info" do
@@ -134,7 +135,7 @@ defmodule ReqLLM.Streaming.FinchClientTest do
           stream_server
         )
 
-      # Should succeed and return proper HTTPContext structure  
+      # Should succeed and return proper HTTPContext structure
       assert {:ok, task_pid, http_context, canonical_json} = result
       assert is_pid(task_pid)
       assert %HTTPContext{} = http_context

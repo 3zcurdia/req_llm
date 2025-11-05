@@ -1,8 +1,9 @@
 defmodule ReqLLM.Streaming.HTTP2ValidationTest do
   use ReqLLM.StreamingCase
 
+  alias ReqLLM.Context
+  alias ReqLLM.Model
   alias ReqLLM.Streaming.FinchClient
-  alias ReqLLM.{Model, Context}
 
   describe "HTTP/2 body size validation" do
     test "allows small request bodies with HTTP/2 pools" do
