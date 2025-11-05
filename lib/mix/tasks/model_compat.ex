@@ -621,7 +621,7 @@ defmodule Mix.Tasks.ReqLlm.ModelCompat do
   defp model_supports_operation?(registry, provider, model_id, :embedding) do
     case find_model(registry, provider, model_id) do
       nil -> false
-      model -> is_embedding_model?(model)
+      model -> embedding_model?(model)
     end
   end
 
