@@ -83,7 +83,7 @@ defmodule ReqLLM.Providers.Cerebras do
 
   defp add_strict_to_tools(%{"tools" => tools, "model" => model} = body) when is_list(tools) do
     tools =
-      if is_qwen_model?(model) do
+      if qwen_model?(model) do
         Enum.map(tools, &strip_unsupported_schema_constraints/1)
       else
         Enum.map(tools, fn tool ->
@@ -96,7 +96,7 @@ defmodule ReqLLM.Providers.Cerebras do
 
   defp add_strict_to_tools(body), do: body
 
-  defp is_qwen_model?(model) do
+  defp qwen_model?(model) do
     String.contains?(model, "qwen")
   end
 
